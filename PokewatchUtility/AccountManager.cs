@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using PokewatchUtility.DataTypes;
 using POGOLib.Net;
 using POGOLib.Net.Authentication;
-using POGOLib.Pokemon.Data;
+using POGOLib.Net.Authentication.Providers;
 using Tweetinvi.Core.Extensions;
 
 namespace PokewatchUtility
@@ -27,7 +27,8 @@ namespace PokewatchUtility
 				try
 				{
 					PokewatchLogger.Log("[!]Attempting to sign in to PokemonGo as " + account.PTCUsername + " using PTC.", GetAccountName(account));
-					var pogoSession = Login.GetSession(account.PTCUsername, account.PTCPassword, LoginProvider.PokemonTrainerClub, defaultLocation.Latitude, defaultLocation.Longitude);
+                    var loginProvider = new PtcLoginProvider(account.PTCUsername, account.PTCPassword);
+					var pogoSession = Login.GetSession(loginProvider, defaultLocation.Latitude, defaultLocation.Longitude).Result;
 					PokewatchLogger.Log("[+]Sucessfully logged in to PokemonGo using PTC.", GetAccountName(account));
 					return pogoSession;
 				}
@@ -38,18 +39,19 @@ namespace PokewatchUtility
 			}
 			if (!account.GAUsername.IsNullOrEmpty() && !account.GAPassword.IsNullOrEmpty())
 			{
-				try
-				{
-					PokewatchLogger.Log("[!]Attempting to sign in to PokemonGo as " + account.GAUsername + " using Google.", GetAccountName(account));
-					var pogoSession = Login.GetSession(account.GAUsername, account.GAPassword, LoginProvider.GoogleAuth, defaultLocation.Latitude, defaultLocation.Longitude);
-					PokewatchLogger.Log("[+]Sucessfully logged in to PokemonGo using Google.", GetAccountName(account));
-					return pogoSession;
-				}
-				catch
-				{
-					PokewatchLogger.Log("[-]Unable to log in using Google.", GetAccountName(account));
-				}
-			}
+                PokewatchLogger.Log("[-]Google login is disabled for a bit, sorry! - AeonLucid", GetAccountName(account));
+                //				try
+                //				{
+                //					PokewatchLogger.Log("[!]Attempting to sign in to PokemonGo as " + account.GAUsername + " using Google.", GetAccountName(account));
+                //					var pogoSession = Login.GetSession(account.GAUsername, account.GAPassword, LoginProvider.GoogleAuth, defaultLocation.Latitude, defaultLocation.Longitude);
+                //					PokewatchLogger.Log("[+]Sucessfully logged in to PokemonGo using Google.", GetAccountName(account));
+                //					return pogoSession;
+                //				}
+                //				catch
+                //				{
+                //					PokewatchLogger.Log("[-]Unable to log in using Google.", GetAccountName(account));
+                //				}
+            }
 			return null;
 		}
 

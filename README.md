@@ -9,10 +9,10 @@ Subreddit: https://reddit.com/r/pokewatch
 
 DOWNLOAD: https://github.com/bunzosteele/PokeWatch/releases
 
-##Set Up Instructions
+## Set Up Instructions
 1. GETTING THE FILES:
 
-	a. Download and Pokewatch.zip and extract files (https://db.tt/6xC2eLL7).
+	a. [Download](https://github.com/AeonLucid/PokeWatch/archive/master.zip) and Pokewatch.zip and extract files.
 	
 	b. Alternatively, clone and build the repo.
 	

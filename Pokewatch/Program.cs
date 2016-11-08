@@ -77,9 +77,13 @@ namespace Pokewatch
 
 			PokewatchLogger.Log("[+]Sucessfully signed in to twitter.", AccountManager.GetAccountName(s_account));
 
-			s_pogoSession.Startup();
+		    if (s_pogoSession.StartupAsync().Result)
+            {
+                PokewatchLogger.Log("[-]POGO Couldn't start.", "PokewatchUnknown");
+                Environment.Exit(2);
+            }
 
-			s_pogoSession.AccessTokenUpdated += (sender, eventArgs) =>
+		    s_pogoSession.AccessTokenUpdated += (sender, eventArgs) =>
 			{
 				PokewatchLogger.Log("[+]Access token updated.", AccountManager.GetAccountName(s_account));
 			};
@@ -158,8 +162,9 @@ namespace Pokewatch
 		//Sign in to Twitter.
 		private static bool PrepareTwitterClient()
 		{
-			if (s_config.TwitterConsumerToken.IsNullOrEmpty() || s_config.TwitterConsumerSecret.IsNullOrEmpty()
-				|| s_config.TwitterAccessToken.IsNullOrEmpty() || s_config.TwitterConsumerSecret.IsNullOrEmpty())
+            
+			if (string.IsNullOrEmpty(s_config.TwitterConsumerToken) || string.IsNullOrEmpty(s_config.TwitterConsumerSecret)
+				|| string.IsNullOrEmpty(s_config.TwitterAccessToken) || string.IsNullOrEmpty(s_config.TwitterConsumerSecret))
 			{
 				PokewatchLogger.Log("[-]Must supply Twitter OAuth strings.", AccountManager.GetAccountName(s_account));
 				return false;

@@ -47,10 +47,10 @@ namespace PogoTos
 					continue;
 				}
 				Thread.Sleep(10000);
-				session.Startup();
+				var result = session.StartupAsync().Result;
 				PokewatchLogger.Log("[!]Attempting to Accept ToS.", "ToS");
 				Thread.Sleep(10000);
-				var acceptTosRaw = session.RpcClient.SendRemoteProcedureCall(new Request
+				var acceptTosRaw = session.RpcClient.SendRemoteProcedureCallAsync(new Request
 				{
 					RequestType = RequestType.MarkTutorialComplete,
 					RequestMessage = new MarkTutorialCompleteMessage
@@ -59,7 +59,7 @@ namespace PogoTos
 						SendPushNotifications = false,
 						TutorialsCompleted = { 0 }
 					}.ToByteString()
-				});
+				}).Result;
 
 				var acceptTos = MarkTutorialCompleteResponse.Parser.ParseFrom(acceptTosRaw);
 				if (acceptTos.Success)
