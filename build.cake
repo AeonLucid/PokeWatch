@@ -64,7 +64,7 @@ Task("Archive")
 	foreach (var target in targets)
 	{
 		var targetDirectory = System.IO.Path.Combine(outputDirectory, target[1]);
-		var targetZip = System.IO.Path.Combine(outputDirectory, projectName + "-" + target[2] + "-" + version + ".zip");
+		var targetZip = System.IO.Path.Combine(outputDirectory, projectName + "-" + target[2] + "-v" + version + ".zip");
 
 		Zip(targetDirectory, targetZip);
 	}
