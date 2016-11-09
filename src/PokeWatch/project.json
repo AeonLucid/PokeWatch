@@ -1,0 +1,23 @@
+{
+  "version": "1.0.0-*",
+  "buildOptions": {
+    "debugType": "portable",
+    "emitEntryPoint": true
+  },
+  "dependencies": {},
+  "frameworks": {
+    "netcoreapp1.0": {
+      "dependencies": {
+        "Microsoft.NETCore.App": {
+          "type": "platform",
+          "version": "1.0.1"
+        }
+      },
+      "imports": "dnxcore50"
+    }, "net45": {} 
+  },
+  "runtimes": {
+    "win7-x64": {},
+    "win7-x86": {}
+  }
+}

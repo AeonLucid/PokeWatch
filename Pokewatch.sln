@@ -1,15 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pokewatch", "Pokewatch\Pokewatch.csproj", "{504ABFE3-F622-4956-A6F7-5141CE342C39}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{454DA7E5-41E6-46AF-B66D-558C451D4473}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokewatchLauncher", "PokewatchLauncher\PokewatchLauncher.csproj", "{865A75D0-2E75-41B1-BD80-E540CF3466F6}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{04BC8368-2AAF-4114-8091-65AC44D9EFA1}"
+	ProjectSection(SolutionItems) = preProject
+		build.cake = build.cake
+		build.ps1 = build.ps1
+		global.json = global.json
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PogoTos", "PogoTos\PogoTos.csproj", "{CE8AC05F-C3D0-410B-AC84-1629573FC544}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokewatchUtility", "PokewatchUtility\PokewatchUtility.csproj", "{784AB8C5-707D-4F58-9F54-A752FCEFFD1C}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "PokeWatch", "src\PokeWatch\PokeWatch.xproj", "{4F720E73-C11F-4CC7-B3F5-7F55FE87CEC8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,24 +20,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{504ABFE3-F622-4956-A6F7-5141CE342C39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{504ABFE3-F622-4956-A6F7-5141CE342C39}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{504ABFE3-F622-4956-A6F7-5141CE342C39}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{504ABFE3-F622-4956-A6F7-5141CE342C39}.Release|Any CPU.Build.0 = Release|Any CPU
-		{865A75D0-2E75-41B1-BD80-E540CF3466F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{865A75D0-2E75-41B1-BD80-E540CF3466F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{865A75D0-2E75-41B1-BD80-E540CF3466F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{865A75D0-2E75-41B1-BD80-E540CF3466F6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CE8AC05F-C3D0-410B-AC84-1629573FC544}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CE8AC05F-C3D0-410B-AC84-1629573FC544}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CE8AC05F-C3D0-410B-AC84-1629573FC544}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CE8AC05F-C3D0-410B-AC84-1629573FC544}.Release|Any CPU.Build.0 = Release|Any CPU
-		{784AB8C5-707D-4F58-9F54-A752FCEFFD1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{784AB8C5-707D-4F58-9F54-A752FCEFFD1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{784AB8C5-707D-4F58-9F54-A752FCEFFD1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{784AB8C5-707D-4F58-9F54-A752FCEFFD1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F720E73-C11F-4CC7-B3F5-7F55FE87CEC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F720E73-C11F-4CC7-B3F5-7F55FE87CEC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F720E73-C11F-4CC7-B3F5-7F55FE87CEC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F720E73-C11F-4CC7-B3F5-7F55FE87CEC8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4F720E73-C11F-4CC7-B3F5-7F55FE87CEC8} = {454DA7E5-41E6-46AF-B66D-558C451D4473}
 	EndGlobalSection
 EndGlobal
